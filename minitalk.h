@@ -14,6 +14,7 @@
 # define MINITALK_H
 
 # include <unistd.h>
+# include <stdlib.h>
 # include <signal.h>
 # include "Libft/libft.h"
 # include "Printf/ft_printf.h"

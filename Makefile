@@ -19,16 +19,16 @@ FLAGS = -Wall -Werror -Wextra
 SRCS = client.c 
 SRSS = server.c
 
-all: ${NAMEC} ${NAMES}
+all:	${NAMEC} ${NAMES}
 
 ${LIBFT}:
 	@make -C Libft
 ${PRINTF}:
 	@make -C Printf
 ${NAMEC}: ${LIBFT} ${PRINTF}
-	${CC} ${SRCS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMEC}
+	@${CC} ${SRCS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMEC}
 ${NAMES}: ${LIBFT} ${PRINTF}
-	${CC} ${SRCS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMES}
+	@${CC} ${SRSS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMES}
 clean:
 	@rm ${NAMEC}
 	@rm ${NAMES}
