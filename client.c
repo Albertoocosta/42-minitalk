@@ -6,16 +6,16 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 19:31:33 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/09/17 20:30:14 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/09/29 16:53:20 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	tobinary(int pid, char 	letter)
+void	tobinary(int pid, char letter)
 {
 	int	bit;
-	
+
 	bit = 0;
 	while (bit < 8)
 	{
@@ -42,9 +42,9 @@ void	message_handle(int pid, char *message)
 }
 
 int	main(int argc, char **argv)
-{	
+{
 	if (argc != 3)
-		return(1);
+		return (1);
 	message_handle(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }

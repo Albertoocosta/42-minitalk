@@ -6,13 +6,13 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 19:31:36 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/09/17 20:54:20 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/09/29 16:20:13 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-char	*message;
+char	*g_message;
 
 char	*strjoinmini(char *s1, char *s2)
 {
@@ -43,36 +43,35 @@ void	sig_handle(int signum)
 {
 	static int	bit;
 	static int	i;
-	//char	*letter;
-	
+	char		*letter;
+
 	if (signum == SIGUSR1)
 		i |= (1 << bit);
 	bit++;
 	if (bit == 8)
 	{
-	//	letter = (char *)malloc(sizeof(char) * 2);
-	//	if (!letter)
-	//		return ;
-	//	letter[0] = i;
-	//	letter[1] = 0;
-	//	message = strjoinmini(message, letter);
-//		if (letter[0] == '\n')
-//		{
-//			ft_putstr_fd(message, 1);
-//			free(message);
-//			message = NULL;
-//		}
-		ft_printf("%c", i);
+		letter = (char *)malloc(sizeof(char) * 2);
+		if (!letter)
+			return ;
+		letter[0] = i;
+		letter[1] = 0;
+		g_message = strjoinmini(g_message, letter);
+		if (letter[0] == '\n')
+		{
+			ft_putstr_fd(g_message, 1);
+			free(g_message);
+			g_message = NULL;
+		}
 		bit = 0;
 		i = 0;
-	//	free(letter);
+		free(letter);
 	}
 }
 
 int	main(void)
 {
 	int	pid;
-	
+
 	pid = getpid();
 	if (pid == -1)
 		ft_printf("error pid\n");
