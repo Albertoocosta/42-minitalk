@@ -19,11 +19,11 @@ void	tobinary(int pid, char 	letter)
 	bit = 0;
 	while (bit < 8)
 	{
-		if (letter & (1 << bit))
+		if ((letter & (1 << bit)) != 0)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		//usleep(500);
+		usleep(100);
 		bit++;
 	}
 }
@@ -38,14 +38,13 @@ void	message_handle(int pid, char *message)
 		tobinary(pid, message[i]);
 		i++;
 	}
+	tobinary(pid, '\n');
 }
 
 int	main(int argc, char **argv)
-{
-	int	pid;
+{	
 	if (argc != 3)
 		return(1);
-	pid = ft_atoi(argv[1]);
-	message_handle(pid, argv[2]);
+	message_handle(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }

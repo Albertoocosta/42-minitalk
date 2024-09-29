@@ -6,7 +6,7 @@
 #    By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 19:31:40 by cda-fons          #+#    #+#              #
-#    Updated: 2024/09/29 11:59:21 by cda-fons         ###   ########.fr        #
+#    Updated: 2024/09/29 12:01:32 by cda-fons         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,14 @@ FLAGS = -Wall -Werror -Wextra
 SRCS = client.c 
 SRSS = server.c
 
-all: ${NAMEC} ${NAMES}
+all:	${NAMEC} ${NAMES}
 
 ${LIBFT}:
 	@make -C Libft
 ${PRINTF}:
 	@make -C Printf
 ${NAMEC}: ${LIBFT} ${PRINTF}
-	${CC} ${SRCS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMEC}
+	@${CC} ${SRCS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMEC}
 ${NAMES}: ${LIBFT} ${PRINTF}
 	${CC} ${SRSS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMES}
 clean:
