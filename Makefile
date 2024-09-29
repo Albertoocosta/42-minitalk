@@ -6,7 +6,7 @@
 #    By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 19:31:40 by cda-fons          #+#    #+#              #
-#    Updated: 2024/09/17 20:37:04 by cda-fons         ###   ########.fr        #
+#    Updated: 2024/09/29 11:59:21 by cda-fons         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ ${PRINTF}:
 ${NAMEC}: ${LIBFT} ${PRINTF}
 	${CC} ${SRCS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMEC}
 ${NAMES}: ${LIBFT} ${PRINTF}
-	${CC} ${SRCS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMES}
+	${CC} ${SRSS} ${LIBFT} ${PRINTF} ${FLAGS} -o ${NAMES}
 clean:
 	@rm ${NAMEC}
 	@rm ${NAMES}
